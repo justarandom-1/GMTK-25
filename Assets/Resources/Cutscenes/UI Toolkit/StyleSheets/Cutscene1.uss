@@ -1,0 +1,131 @@
+.backgroundCanvas
+{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-image: resource('Backgrounds/tokyocutscene');
+}
+
+.backgroundCanvas2
+{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-image: resource('Backgrounds/koreacutscene');
+}
+.backgroundCanvas3
+{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-image: resource('Cutscenes/Sprites/americanhouse');
+}
+.protagonist3
+{
+    position:absolute;
+    width:20%;
+    height:70%;
+    top:10%;
+    left:10%;
+    background-image: resource('Cutscenes/Sprites/protagarm');
+    -unity-background-scale-mode: scale-to-fit;
+}
+.protestors
+{
+    position:absolute;
+    width:20%;
+    height:70%;
+    top:10%;
+    left:75%;
+    background-image: resource('Cutscenes/Sprites/protestors2');
+    -unity-background-scale-mode: scale-to-fit;
+}
+.dog
+{
+    position: absolute;
+    width:45%;
+    height:30%;
+    top:50%;
+    left:35%;
+    background-image: resource('Dogs/Basic Dog/dog');
+    -unity-background-scale-mode: scale-to-fit;
+}
+.tv
+{
+    position: absolute;
+    width:30%;
+    height:20%;
+    top:30%;
+    left:40%;
+    background-image: resource('Cutscenes/Sprites/tv');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.protagonist
+{
+    position:absolute;
+    width:20%;
+    height:70%;
+    top:20%;
+    left:27%;
+    background-image: resource('Cutscenes/Sprites/protagonistwhitehair');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.medal
+{
+    position:absolute;
+    width:20%;
+    height:70%;
+    top:20%;
+    left:55%;
+    background-image: resource('Cutscenes/Sprites/medalaward');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.protagonist2
+{
+    position:absolute;
+    width:20%;
+    height:70%;
+    top:10%;
+    left:35%;
+    background-image: resource('Cutscenes/Sprites/protageyepatch');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+
+
+.DialogueBox
+{
+    height: 26%;
+    width: 85%;
+    top: 68%;
+    left: 7.5%;
+    right: 7.5%;
+    background-color: rgba(160, 160, 160, 0.6);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-size: 40px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Electronic%20Highway%20Sign.TTF?fileID=12800000&guid=8a2b9e2a607dd2143b58c44bc32410b4&type=3#Electronic Highway Sign");
+    margin-top: 6px;
+    -unity-paragraph-spacing: 0;
+    padding-top: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+    letter-spacing: 2px;
+    word-spacing: 0;
+    text-shadow: 0 0 0 rgb(0, 0, 0);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    white-space:normal;
+    color: rgba(0, 0, 0, 1)
+}

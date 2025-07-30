@@ -1,0 +1,33 @@
+VisualElement {
+}
+
+
+
+.background-canvas
+{
+    background-image: resource('Backgrounds/spacecutscene');
+    height:100%;
+}
+
+.glowing-text
+{
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Electronic%20Highway%20Sign.TTF?fileID=12800000&guid=8a2b9e2a607dd2143b58c44bc32410b4&type=3#Electronic Highway Sign");
+    color: rgb(34, 155, 34);
+    -unity-font-style: bold; 
+    top: 75%; 
+    left: 40%;
+    font-size: 50px;
+}
+
+.title
+{
+    color: rgb(34, 155, 34);
+    -unity-font-definition: resource('Cutscenes/KaiseiDecol-Bold');
+    top: -5%;
+    left: 7%;
+    font-size: 150px; 
+    -unity-paragraph-spacing: -45px;
+    letter-spacing: 10px;
+    -unity-text-outline-width:3px;
+    -unity-text-outline-color:rgb(0,0,0);
+}

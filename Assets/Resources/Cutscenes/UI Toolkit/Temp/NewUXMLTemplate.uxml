@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/Cutscenes/UI%20Toolkit/Temp/Test.uss?fileID=7433441132597879392&amp;guid=da12a6de16c1d495e9d047428666566a&amp;type=3#Test" />
+    <YarnspinnerLabel class="yarnspinner spinning" style="color: rgb(253, 253, 253);" />
+</ui:UXML>

@@ -1,0 +1,23 @@
+/*don't change this*/
+:root
+{
+    background-color: black
+}
+
+/*don't change this either don't be stoobid*/
+.ext-container
+{
+    position: absolute;
+    height:  100%;
+    width: 100%;
+    /*background-image: url("project://database/Assets/Backgrounds/bejing.jpg?fileID=2800000&guid=a211b5be9de085e43a5a27cb6f3e842f&type=3#bejing");*/
+}
+
+.blackBox
+{
+    height:100%;
+    width:100%;
+    position:absolute;
+    background-color:rgb(0,0,0);
+    opacity:0;
+}
