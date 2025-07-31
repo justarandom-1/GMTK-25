@@ -11,13 +11,13 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 check = Player.instance.isInBoundary();
-        Vector2 playerPosition = Player.instance.getPosition();
-        if (check.x == 1)
-            transform.position = new Vector3(playerPosition.x, transform.position.y, transform.position.z);
+        // Vector2 check = Player.instance.isInBoundary();
+        // Vector2 playerPosition = Player.instance.getPosition();
+        // if (check.x == 1)
+        //     transform.position = new Vector3(playerPosition.x, transform.position.y, transform.position.z);
 
-        if (check.y == 1)
-            transform.position = new Vector3(transform.position.x, playerPosition.y, transform.position.z);
+        // if (check.y == 1)
+        //     transform.position = new Vector3(transform.position.x, playerPosition.y, transform.position.z);
     }
 
     public Vector2 getPosition(float offsetX = 0, float offsetY = 0)

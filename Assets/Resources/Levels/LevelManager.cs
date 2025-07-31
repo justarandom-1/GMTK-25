@@ -6,15 +6,12 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     [SerializeField] GameObject health;
-    [SerializeField] GameObject compass;
 
     [SerializeField] string winScene;
 
     [SerializeField] string loseScene;
     private RectTransform healthbar;
-    private RectTransform compassPointer;
 
-    private float compassAngle = 3600;
     protected int state;
     protected AudioSource audioSource;
     protected string nextScene;
@@ -35,15 +32,12 @@ public class LevelManager : MonoBehaviour
 
         maxLevel = PlayerPrefs.GetInt("maxLevel", 0);
 
-        if (compass != null)
-            compassPointer = compass.GetComponent<RectTransform>();
-            
         dialogueVol = 1.0f / audioSource.volume;
     }
 
     public void updateHealth()
     {
-        if (Player.instance != null)
+        if (Player.instance != null && healthbar != null)
         {
             float x = 357.5f - Player.instance.getHealth() * (35 + 357.5f);
             healthbar.offsetMin = new Vector2(x, healthbar.offsetMin.y);
@@ -59,12 +53,6 @@ public class LevelManager : MonoBehaviour
 
         nextScene = winScene;
         PlayerPrefs.SetInt("maxLevel", Mathf.Max(maxLevel, levelNum + 1));
-
-        if (Player.instance.getHealth() == 1)
-            PlayerPrefs.SetInt("noHits", PlayerPrefs.GetInt("noHits", 0) | (1 << (levelNum - 1)));
-
-        if (Player.instance.getHealth() >= 0.9f)
-            PlayerPrefs.SetInt("mostHits", PlayerPrefs.GetInt("mostHits", 0) | (1 << (levelNum - 1)));
         EndLevel();
     }
 
@@ -87,59 +75,8 @@ public class LevelManager : MonoBehaviour
     {
         state2();
 
-
-        var allEnemies = FindObjectsByType<Dog>(FindObjectsSortMode.None);
-
-        if (allEnemies.Length == 0)
-        {
-            if (state != 2)
-                Win();
-        }
-        else
-        {
-            Vector2 playerPos = Player.instance.getPosition();
-
-            Vector2 dist = (Vector2)allEnemies[0].transform.position - playerPos;
-
-            foreach (Dog d in allEnemies)
-            {
-                Vector2 newDist = (Vector2)d.transform.position - playerPos;
-                if (newDist.magnitude < dist.magnitude)
-                {
-                    dist = newDist;
-                }
-            }
-
-            // if (compassAngle == 3600)
-            // {
-            //     compassAngle = VectorToAngle(dist);
-            //     return;
-            // }
-
-            float angleDist = VectorToAngle(dist) - compassAngle;
-
-            float shift = 120 * Time.deltaTime;
-            
-            if (angleDist > 0){
-                if(angleDist < 180)
-                    shift = Mathf.Min(shift, angleDist);
-                else
-                    shift = Mathf.Max(shift * -1, angleDist - 360);
-            }
-            else{
-                if(angleDist > -180)
-                    shift = Mathf.Max(shift * -1, angleDist);
-                else
-                    shift = Mathf.Min(shift, angleDist + 360);
-            }
-
-            compassAngle += shift;                
-            
-            compassPointer.rotation = Quaternion.Euler(0.0f, 0.0f, compassAngle);
-
-            compassAngle = compassAngle % 360;
-
-        }
+        if (state != 2)
+            Win();
     }
 
     protected void state2()
@@ -155,7 +92,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public static float VectorToAngle(Vector2 v)
+    public void PlayAudio(AudioClip a, float vol = 1.0f)
+    {
+        audioSource.PlayOneShot(a, vol);
+    }
+
+    public static float Vec2Deg(Vector2 v)
     {
         v.Normalize();
         float a = Mathf.Asin(v.y) * Mathf.Rad2Deg;
@@ -163,4 +105,11 @@ public class LevelManager : MonoBehaviour
             a = 180 - a;
         return a;
     }
+    
+    public static Vector2 Deg2Vec(float angle)
+    {
+        float rad = angle * Mathf.Deg2Rad;
+        return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+    }
+
 }
